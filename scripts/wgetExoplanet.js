@@ -3,7 +3,7 @@ const fs = require("fs");
 
 const src =
   "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+*+from+pscomppars&format=json";
-const outputFile = "ExoplanetList\\ExoplanetXML.xml";
+const outputFile = "ExoplanetList\\ExoplanetJSON.xml";
 
 // Uses wget to pull XML table from caltech NASA API
 
