@@ -1,0 +1,24 @@
+{
+  "name": "exoplanet-counter",
+  "version": "1.0.0",
+  "description": "Interacts with NASA exoplanet API to count the number of discovered exoplanets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makejullins/exoplanet-counter.git"
+  },
+  "author": "Jake Mullins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makejullins/exoplanet-counter/issues"
+  },
+  "homepage": "https://github.com/makejullins/exoplanet-counter#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "wget": "0.0.1",
+    "wget-improved": "^3.2.1"
+  }
+}
