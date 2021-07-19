@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const fs = require("fs");
-const path = require("path");
+const async = require("async");
 
 const dataPath = "./ExoplanetList/ExoplanetJSON.json";
 console.log(dataPath);
@@ -26,11 +26,12 @@ mongoose.connect(
     fs.readFile(dataPath, function (err, data) {
       if (err) throw err;
 
-      const exoplanetData = data.toString();
+      const exoString = data.toString();
+      const exoJSON = JSON.parse(exoString);
 
-      Exoplanet.collection.insertMany(exoplanetData, function(err, r) {
-        console.log("Data added");
-      })
+      console.log(exoJSON);
+
+      Exoplanet.insertMany(exoJSON);
     });
   }
 );
