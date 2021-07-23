@@ -15,7 +15,6 @@ const exoSchema = new mongoose.Schema({
 var Exoplanet = mongoose.model("Exoplanet", exoSchema);
 
 function uploadData() {
-
   // Gets from wget, made the execution of this function dependent on
   // Completion of wget
   console.log("Connecting to mongoose");
@@ -31,7 +30,8 @@ function uploadData() {
         const exoString = data.toString();
         const exoJSON = JSON.parse(exoString);
 
-        // Delets all Exoplanets, then populates with pl_name from JSON
+        // Deletes all Exoplanets, then populates with pl_name from JSON
+        // Counts entries
         Exoplanet.deleteMany({}, function () {
           console.log("Old data removed");
           Exoplanet.insertMany(exoJSON);
@@ -40,6 +40,15 @@ function uploadData() {
       });
     }
   );
+
+  // Counts exoplanets
+  Exoplanet.countDocuments({}, function (err2, count) {
+    if (err2) throw err2;
+
+    console.log(count);
+
+    module.exports.exoplanetCount = count;
+  });
 }
 
-module.exports = uploadData;
+module.exports.uploadData = uploadData;

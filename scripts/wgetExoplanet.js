@@ -30,8 +30,9 @@ function wgetExoXML() {
 
   setTimeout(() =>{
     console.log("Upload to mongo")
-    uploadToMongo();
+    uploadToMongo.uploadData();
   }, WAIT_TIME);
 }
+
 
 module.exports = wgetExoXML;
