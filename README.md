@@ -7,4 +7,4 @@ Counts number of exoplanets
 Mongo String
 mongodb+srv://exoplanetCounter:iYK0ysDTeJJPqxvD@exoplanetnames.nu20q.mongodb.net/local?retryWrites=true&w=majority 
 exoplanetCounter
-iYK0ysDTeJJPqxvD
+9Y6gdCsMR8AHXRir
