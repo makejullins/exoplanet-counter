@@ -6,7 +6,7 @@ const dataPath = "./ExoplanetList/ExoplanetJSON.json";
 console.log(dataPath);
 
 const MONGO_URI =
-  "mongodb+srv://exoplanetCounter:iYK0ysDTeJJPqxvD@exoplanetnames.nu20q.mongodb.net/pl_name?retryWrites=true&w=majority";
+  "mongodb+srv://exoplanetCounter:9Y6gdCsMR8AHXRir@exoplanetnames.nu20q.mongodb.net/pl_name?retryWrites=true&w=majority";
 
 const exoSchema = new mongoose.Schema({
   pl_name: String,
@@ -14,26 +14,32 @@ const exoSchema = new mongoose.Schema({
 
 var Exoplanet = mongoose.model("Exoplanet", exoSchema);
 
-console.log("program start");
+function uploadData() {
 
-mongoose.connect(
-  MONGO_URI,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  function () {
+  // Gets from wget, made the execution of this function dependent on
+  // Completion of wget
+  console.log("Connecting to mongoose");
+  mongoose.connect(
+    MONGO_URI,
+    { useNewUrlParser: true, useUnifiedTopology: true },
+    function () {
+      console.log("Connected to Mongoose");
+      console.log(mongoose.connection.db.databaseName);
+      fs.readFile(dataPath, function (err, data) {
+        if (err) throw err;
 
-    console.log("Connected to Mongoose");
+        const exoString = data.toString();
+        const exoJSON = JSON.parse(exoString);
 
-    fs.readFile(dataPath, function (err, data) {
-      if (err) throw err;
+        // Delets all Exoplanets, then populates with pl_name from JSON
+        Exoplanet.deleteMany({}, function () {
+          console.log("Old data removed");
+          Exoplanet.insertMany(exoJSON);
+          console.log("New data updated");
+        });
+      });
+    }
+  );
+}
 
-      const exoString = data.toString();
-      const exoJSON = JSON.parse(exoString);
-
-      console.log(exoJSON);
-
-      Exoplanet.insertMany(exoJSON);
-    });
-  }
-);
-
-const db = mongoose.connection;
+module.exports = uploadData;
