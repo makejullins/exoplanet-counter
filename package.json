@@ -1,28 +1,32 @@
 {
-  "name": "exoplanet-counter",
-  "version": "1.0.0",
-  "description": "Interacts with NASA exoplanet API to count the number of discovered exoplanets",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/makejullins/exoplanet-counter.git"
-  },
-  "author": "Jake Mullins",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/makejullins/exoplanet-counter/issues"
-  },
-  "homepage": "https://github.com/makejullins/exoplanet-counter#readme",
-  "dependencies": {
-    "async": "^3.2.0",
-    "express": "^4.17.1",
-    "mongo": "^0.1.0",
-    "mongoose": "^5.13.2",
-    "wget": "0.0.1",
-    "wget-improved": "^3.2.1",
-    "xml2js": "^0.4.23"
-  }
+    "name": "exoplanet-counter",
+    "version": "1.0.0",
+    "description": "Interacts with NASA exoplanet API to count the number of discovered exoplanets",
+    "main": "index.js",
+    "scripts": {
+        "start": "node ./bin/www",
+        "devstart": "nodemon ./bin/www",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/makejullins/exoplanet-counter.git"
+    },
+    "author": "Jake Mullins",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/makejullins/exoplanet-counter/issues"
+    },
+    "homepage": "https://github.com/makejullins/exoplanet-counter#readme",
+    "dependencies": {
+        "async": "^3.2.0",
+        "express": "^4.17.1",
+        "express-generator": "^4.16.1",
+        "mongo": "^0.1.0",
+        "mongoose": "^5.13.2",
+        "pug": "^3.0.2",
+        "wget": "0.0.1",
+        "wget-improved": "^3.2.1",
+        "xml2js": "^0.4.23"
+    }
 }
